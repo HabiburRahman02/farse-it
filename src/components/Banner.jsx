@@ -1,11 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import banner from '../assets/images/banner.png'
 import bgImg from '../assets/images/home.jpg'
 import homeBanner2 from '../assets/images/home-img2.jpg'
 import { NavLink } from 'react-router-dom';
 
 const Banner = () => {
-    const skills = [
+    const [skills, setSkills] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState('Frontend')
+    const [filteredSkills, setFilteredSkills] = useState([]);
+
+
+    useEffect(() => {
+        fetch('skills.json')
+            .then(res => res.json())
+            .then(data => {
+                setSkills(data);
+            });
+    }, []);
+
+    // Handle category click
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+        const filtered = skills.filter(skill => skill.category === category);
+        setFilteredSkills(filtered);
+    };
+
+    const skillCategories = [
         "Frontend",
         "Backend",
         "Database",
@@ -48,21 +68,48 @@ const Banner = () => {
                     </p>
                     <h4 className='max-w-6xl mx-auto text-2xl text-center my-4 h-7'><span>Empowering the future digital landscope</span></h4>
                 </div>
-                <div className='bg-gray-900 py-1 w-full rounded-md text-gray-300 grid grid-cols-5 gap-20 px-20'>
+                {/* Category navigation */}
+                <div className='bg-gray-900 py-1 w-full rounded-md text-gray-300 grid grid-cols-5 gap-0 px-20'>
                     {
-                        skills.map(skill =>
+                        skillCategories.map(skill => (
                             <NavLink
+                                key={skill}
                                 to="/"
-                                className={({ isActive }) =>
-                                    ` inline-block duration-300  w-fit pb-1 ${isActive ? "bg-gray-800 px-12 w-full rounded-md" : ""
-                                    }`
-                                }
+                                onClick={() => handleCategoryClick(skill)}
+                                className={`inline-block duration-300 pb-1 ${selectedCategory === skill ? 'bg-gray-800 px-12 rounded-md text-center' : 'px-12 text-center'}`}  // Fix width and padding
                             >
                                 {skill}
                             </NavLink>
-                        )
+                        ))
                     }
+
+
                 </div>
+
+                {/* Display skills for the selected category */}
+                {selectedCategory && (
+                    <div className="mt-2 bg-gray-800 p-6 rounded-xl text-white">
+                        <div className="mt-4">
+                            {filteredSkills.length > 0 ? (
+                                filteredSkills.map((skill) => (
+                                    <div key={skill.id} className="mt-4">
+                                        <h3 className="text-gray-100 font-semibold">{skill.name}</h3>
+                                        <p className="text-gray-400 text-md">{skill.des}</p>
+                                        <div>
+                                            {
+                                                skill.skills.map(sk =>
+                                                    <img src={sk} alt="" />
+                                                )
+                                            }
+                                        </div>
+                                    </div>
+                                ))
+                            ) : (
+                                <p>No skills available in this category</p>
+                            )}
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

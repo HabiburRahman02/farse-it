@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name": "Front-End Prowess",
+        "category": "Frontend",
+        "des": "Our skilled front-end team excels in building modern, responsive, and interactive user interfaces using the latest frameworks and best practices.",
+        "skills": [
+            "https://i.ibb.co.com/rGL8Qpr2/frontend.jpg"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Back-End Expertise",
+        "category": "Backend",
+        "des": "Our back-end developers specialize in building secure, scalable, and efficient server-side applications using Node.js, Express, and databases.",
+        "skills": [
+            "https://i.ibb.co.com/8DRYVkNM/backend.jpg"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Database Management",
+        "category": "Database",
+        "des": "We provide robust database solutions for storing and managing large amounts of data, ensuring integrity, security, and performance.",
+        "skills": [
+            "https://i.ibb.co.com/V0jCQgg9/database.jpg"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Content Management Systems (CMS)",
+        "category": "CMS",
+        "des": "We offer custom CMS development, enabling users to easily manage website content, from text to media, with user-friendly interfaces.",
+        "skills": [
+            "https://i.ibb.co.com/ZzB0QcNM/cms.jpg"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Tool Integration",
+        "category": "Tools",
+        "des": "Our team integrates the latest tools and APIs to enhance functionality and improve productivity, providing a seamless user experience.",
+        "skills": [
+            "https://i.ibb.co.com/27xxLSP3/tools.jpg"
+        ]
+    }
+]
