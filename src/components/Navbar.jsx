@@ -75,7 +75,7 @@ const Navbar = () => {
     );
 
     return (
-        <div className="bg-[#001118] flex items-center text-white">
+        <div className="bg-[#001118] flex items-center font-oswald text-white">
             <div className="navbar max-w-[1390px] mx-auto w-full flex justify-between items-center px-4 py-1">
                 {/* Left Logo */}
                 <div className="navbar-start">

@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        lato: ['Lato', 'sans-serif'],
+        oswald: ["Oswald", "sans-serif"],
       }
     },
   },
